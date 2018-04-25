@@ -19,6 +19,6 @@ killall geth
 
 echo "[*] Generating constellation key pair"
 cd raft
-constellation-node --generatekeys=constellation
+echo "" | constellation-node --generatekeys=constellation
 
 echo "[*] Done"
