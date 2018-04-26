@@ -37,7 +37,7 @@ echo "[*] Starting Constellation node"
 ARGS="--url=$(hostname -I | cut -f2 -d " ") --port=9000 --othernodes=[$1] --socket=qdata/tm.ipc  --publickeys=raft/constellation.pub --privatekeys=raft/constellation.key --verbosity=3"
 nohup constellation-node $ARGS  2>> qdata/logs/constellation.log &
 
-if[[$1]]
+if [[ $1 ]]
 then
     echo "[*] installing pip and web3py"
     export LC_ALL="en_US.UTF-8" 
