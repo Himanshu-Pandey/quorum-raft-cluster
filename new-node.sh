@@ -18,6 +18,7 @@ echo "[*] Generating constellation key pair"
 cd raft
 echo "" | constellation-node --generatekeys=constellation
 
+cd ..
 echo "[*] Cleaning up temporary data directories"
 rm -rf qdata
 mkdir -p qdata/logs
