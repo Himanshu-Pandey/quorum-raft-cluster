@@ -27,14 +27,14 @@ echo "[*] Making new account"
 mkdir -p qdata/{keystore,geth}
 cp raft/static-nodes.json qdata
 
-geth --datadir qdata --password passwords.txt account new 
+geth --datadir qdata --password passwords.txt account new
 cp raft/geth/nodekey qdata/geth/nodekey
 
 echo "[*] Initialising geth"
 geth --datadir qdata init genesis.json
 
 echo "[*] Starting Constellation node"
-ARGS="--url=$(hostname -I | cut -f2 -d " ") --port=9000 --othernodes=[$1] --socket=qdata/tm.ipc  --publickeys=raft/constellation.pub --privatekeys=raft/constellation.key --verbosity=3"
+ARGS="--url=http://$(hostname -I | cut -f2 -d " "):9000 --port=9000 --othernodes=[$1] --socket=qdata/tm.ipc  --publickeys=raft/constellation.pub --privatekeys=raft/constellation.key --verbosity=3"
 nohup constellation-node $ARGS  2>> qdata/logs/constellation.log &
 
 # GLOBAL_ARGS="--raft --rpc --rpcaddr 0.0.0.0 --rpcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum"
