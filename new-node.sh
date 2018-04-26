@@ -23,6 +23,7 @@ rm -rf qdata
 mkdir -p qdata/logs
 
 echo "[*] Making new account"
+cd ..
 mkdir -p qdata/{keystore,geth}
 cp raft/static-nodes.json qdata
 
