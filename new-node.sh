@@ -45,7 +45,7 @@ then
     sudo apt-get install python3-pip -y
     pip3 install web3
 
-    echo "[*] calling admin.add peer on http://$1:22000"
+    echo "[*] calling admin.add peer on $1:22000"
     ENODE_ADDR=$(cat raft/static-nodes.json | python -c "import json,sys;obj=json.load(sys.stdin);print obj[0];")
     python3 add-peer.py "$1:22000/" $ENODE_ADDR
 fi
