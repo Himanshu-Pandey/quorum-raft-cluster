@@ -2,7 +2,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.provision :shell, path: "vagrant/bootstrap.sh"
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    v.memory = 2048
   end
   config.vm.define "quorum-node1" do |quorum_node|
     quorum_node.vm.network "private_network", ip: "192.168.33.11"
